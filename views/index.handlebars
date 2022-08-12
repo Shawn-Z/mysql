@@ -1,0 +1,73 @@
+<h1>Clients Table</h1>
+<div class="row">
+  <div class="panel col-lg-5 not-isSection">
+    <h6>clients That Are Not isSection!</h6>
+
+<ul>
+  {{#each clients}}
+    {{#unless this.isSection}}
+      <li>
+        {{this.client_name}}
+
+        <form action="clients/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="isSection" value="1">
+          <button type="submit">change value!</button>
+        </form>
+        <form action="clients/delete/{{this.id}}?_method=DELETE" method="POST">
+{{!--         <form action="clients/delete/{{this.id}}?_method=DELETE" method="POST"> --}}
+        <button type="submit">Delete</button>
+        </form>
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+</div>
+  <div class="panel col-lg-5 isSection">
+<h6>clients That Are isSection!</h6>
+
+
+
+<ul>
+  {{#each clients}}
+    {{#if this.isSection}}
+      <li>
+        {{this.client_name}}
+
+
+        <form action="clients/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="isSection" value="0">
+          <button type="submit">Switch</button>
+        </form>
+
+
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+</div>
+
+
+</div>
+
+
+<h2>Add a Client</h2>
+<form action="clients/create/" method="POST">
+
+  <div class="form-group">
+    <label>Client Name:</label>
+    <input type="text" name="name">
+  </div>
+  <button type="submit">Add Client</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+{{!--         {{> clients/delete-clients}} --}}
