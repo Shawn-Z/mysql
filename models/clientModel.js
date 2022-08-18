@@ -32,7 +32,6 @@ var clientModel = {
 		});
 	}
 };
-
 //clientModel.all(function(data){console.log(data)});
 //clientModel.create('client_name',"yay",function(data){console.log(data)})
 // clientModel.update('devoured',0,'id=1', function(data){console.log(data)})
@@ -40,7 +39,5 @@ var clientModel = {
 
 //TIPS:
 //when you call cb don't forget cb is running as a function.
-
-
 
 module.exports = clientModel;
